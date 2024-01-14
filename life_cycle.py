@@ -12,7 +12,7 @@ SCREEN_SIZE_WIDTH = mouse.size().width
 SCREEN_SIZE_HEIGHT = mouse.size().height
 
 MOUSE_X_MOVEMENT_SIZE = (SCREEN_SIZE_WIDTH / 100) * 5
-MOUSE_Y_MOVEMENT_SIZE = (SCREEN_SIZE_HEIGHT / 100) * 5
+MOUSE_Y_MOVEMENT_SIZE = (SCREEN_SIZE_HEIGHT / 100) * 3
 
 CLICK_THRESHOLD = 5
 
@@ -58,7 +58,6 @@ def camera_life_cycle(exit_key, detector):
         if(movement["axis_y"] == "down"):
             new_mouse_position_y = mouse_position.y + MOUSE_Y_MOVEMENT_SIZE
 
-        print(click_indicator)
         if(movement["click"] == True):
             click_indicator += 1
         else:

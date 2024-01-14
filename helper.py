@@ -78,27 +78,22 @@ def get_eye_movement(mesh_points, z_index):
     elif left_diff > Z_ANCHOR + abs(z_index) * 1.2:
       axis_x = "right"
 
-  if downer_diff < Z_ANCHOR - abs(z_index) * 1.2:
-    axis_y = "down"
-  
-  elif upper_diff > Z_ANCHOR + abs(z_index) * 1.2 and axis_y != "down":
-    axis_y = "up"
-  
-
   # uzağız
-  elif z_index > 0:
+  if z_index > 0:
     if right_diff > Z_ANCHOR - abs(z_index):
       axis_x = "left"
     elif left_diff > Z_ANCHOR - abs(z_index):
       axis_x = "right"
 
-    if upper_diff > Z_ANCHOR - abs(z_index):
-      axis_y = "up"
-    elif downer_diff < Z_ANCHOR and axis_y != "up":
-        axis_y = "down"
+  
+  upper_diff =  upper_diff - abs(z_index)
+  if upper_diff > 25:
+    axis_y = "up"
+  elif upper_diff < 15:
+    axis_y = "down"
 
   return {
     "axis_x": axis_x,
-    "axis_y": None,#axis_y,
+    "axis_y": axis_y,
     "click": click
   }
