@@ -8,7 +8,6 @@ from detector import create_detector
 model_path = 'ai_model.task'
 exit_key = 27 
 
-
 detector = create_detector(model_path)
 
 camera_life_cycle(exit_key, detector)
